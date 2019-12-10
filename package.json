@@ -13,7 +13,7 @@
     "build": "tsdx build",
     "clean": "rimraf dist",
     "test": "echo 0",
-    "npm": "np",
+    "npm": "npm publish",
     "publish-to-npm": "run-s clean build npm"
   },
   "peerDependencies": {
