@@ -1,5 +1,5 @@
 {
-  "name": "rjsf-material-ui",
+  "name": "@minocoko/rjsf-material-ui",
   "version": "0.3.6",
   "main": "dist/index.js",
   "module": "dist/rjsf-material-ui.esm.js",
