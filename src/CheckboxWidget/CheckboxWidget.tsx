@@ -6,6 +6,9 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 import { WidgetProps } from 'react-jsonschema-form';
 
+type Color = 'primary' | 'secondary' | 'default';
+type Size = 'small' | 'medium';
+
 const CheckboxWidget = (props: WidgetProps) => {
   const {
     id,
@@ -18,7 +21,24 @@ const CheckboxWidget = (props: WidgetProps) => {
     onChange,
     onBlur,
     onFocus,
+    options = {},
   } = props;
+
+  const {
+    classes,
+    color = 'secondary',
+    disableRipple = false,
+    indeterminate = false,
+    inputProps,
+    size = 'medium',
+  } = options as {
+    classes: any;
+    color: Color;
+    disableRipple: boolean;
+    indeterminate: boolean;
+    inputProps: any;
+    size: Size;
+  };
 
   const _onChange = ({}, checked: boolean) => onChange(checked);
   const _onBlur = ({
@@ -41,6 +61,12 @@ const CheckboxWidget = (props: WidgetProps) => {
             onChange={_onChange}
             onBlur={_onBlur}
             onFocus={_onFocus}
+            classes={classes}
+            color={color}
+            disableRipple={disableRipple}
+            indeterminate={indeterminate}
+            inputProps={inputProps}
+            size={size}
           />
         }
         label={label}
