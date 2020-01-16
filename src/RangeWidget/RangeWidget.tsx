@@ -33,6 +33,7 @@ const RangeWidget = ({
   const _onFocus = ({
     target: { value },
   }: React.FocusEvent<HTMLInputElement>) => onFocus(id, value);
+  const newLabel = label !== null || label !== undefined ? label : schema.title;
 
   return (
     <Grid container={true} alignItems="flex-end">
@@ -41,7 +42,7 @@ const RangeWidget = ({
         //error={!!rawErrors}
         required={required}
       >
-        <FormLabel id={id}>{label}</FormLabel>
+        <FormLabel id={id}>{newLabel}</FormLabel>
         <Slider
           {...sliderProps}
           disabled={disabled || readonly}

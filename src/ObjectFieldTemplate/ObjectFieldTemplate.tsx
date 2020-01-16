@@ -22,13 +22,17 @@ const ObjectFieldTemplate = ({
   idSchema,
 }: ObjectFieldTemplateProps) => {
   const classes = useStyles();
+  const newTitle =
+    uiSchema['ui:title'] !== null && uiSchema['ui:title'] !== undefined
+      ? uiSchema['ui:title']
+      : title;
 
   return (
     <>
-      {(uiSchema['ui:title'] || title) && (
+      {newTitle && (
         <TitleField
           id={`${idSchema.$id}-title`}
-          title={title}
+          title={newTitle}
           required={required}
         />
       )}

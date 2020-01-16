@@ -69,6 +69,7 @@ const SelectWidget = ({
     target: { value },
   }: React.FocusEvent<HTMLInputElement>) =>
     onFocus(id, processValue(schema, value));
+  const newLabel = label !== null || label !== undefined ? label : schema.title;
 
   return (
     <FormControl
@@ -77,7 +78,7 @@ const SelectWidget = ({
       required={required}
     >
       <InputLabel shrink={true} htmlFor={id}>
-        {label || schema.title}
+        {newLabel}
       </InputLabel>
       <Select
         multiple={typeof multiple === 'undefined' ? false : multiple}

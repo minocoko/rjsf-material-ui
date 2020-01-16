@@ -33,6 +33,7 @@ const TextareaWidget = ({
   const _onFocus = ({
     target: { value },
   }: React.FocusEvent<HTMLInputElement>) => onFocus(id, value);
+  const newLabel = label !== null || label !== undefined ? label : schema.title;
 
   return (
     <FormControl
@@ -42,7 +43,7 @@ const TextareaWidget = ({
     >
       <TextField
         id={id}
-        label={label || schema.title}
+        label={newLabel}
         placeholder={placeholder}
         disabled={disabled || readonly}
         value={value}

@@ -121,13 +121,18 @@ const DefaultArrayItem = (props: any) => {
 };
 
 const DefaultFixedArrayFieldTemplate = (props: ArrayFieldTemplateProps) => {
+  const title =
+    props.uiSchema['ui:title'] !== null &&
+    props.uiSchema['ui:title'] !== undefined
+      ? props.uiSchema['ui:title']
+      : props.title;
   return (
     <fieldset className={props.className}>
       <ArrayFieldTitle
         key={`array-field-title-${props.idSchema.$id}`}
         TitleField={props.TitleField}
         idSchema={props.idSchema}
-        title={props.uiSchema['ui:title'] || props.title}
+        title={title}
         required={props.required}
       />
 
@@ -160,6 +165,11 @@ const DefaultFixedArrayFieldTemplate = (props: ArrayFieldTemplateProps) => {
 };
 
 const DefaultNormalArrayFieldTemplate = (props: ArrayFieldTemplateProps) => {
+  const title =
+    props.uiSchema['ui:title'] !== null &&
+    props.uiSchema['ui:title'] !== undefined
+      ? props.uiSchema['ui:title']
+      : props.title;
   return (
     <Paper elevation={2}>
       <Box p={2}>
@@ -167,7 +177,7 @@ const DefaultNormalArrayFieldTemplate = (props: ArrayFieldTemplateProps) => {
           key={`array-field-title-${props.idSchema.$id}`}
           TitleField={props.TitleField}
           idSchema={props.idSchema}
-          title={props.uiSchema['ui:title'] || props.title}
+          title={title}
           required={props.required}
         />
 

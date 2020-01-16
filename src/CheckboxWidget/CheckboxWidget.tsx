@@ -11,6 +11,7 @@ type Size = 'small' | 'medium';
 
 const CheckboxWidget = (props: WidgetProps) => {
   const {
+    schema,
     id,
     value,
     required,
@@ -47,6 +48,7 @@ const CheckboxWidget = (props: WidgetProps) => {
   const _onFocus = ({
     target: { value },
   }: React.FocusEvent<HTMLButtonElement>) => onFocus(id, value);
+  const newLabel = label !== null || label !== undefined ? label : schema.title;
 
   return (
     <FormControl fullWidth={true} required={required}>
@@ -69,7 +71,7 @@ const CheckboxWidget = (props: WidgetProps) => {
             size={size}
           />
         }
-        label={label}
+        label={newLabel}
       />
     </FormControl>
   );

@@ -28,6 +28,7 @@ const TextWidget = ({
   const _onFocus = ({
     target: { value },
   }: React.FocusEvent<HTMLInputElement>) => onFocus(id, value);
+  const newLabel = label !== null || label !== undefined ? label : schema.title;
 
   return (
     <FormControl
@@ -37,7 +38,7 @@ const TextWidget = ({
     >
       <TextField
         id={id}
-        label={label || schema.title}
+        label={newLabel}
         autoFocus={autofocus}
         required={required}
         disabled={disabled || readonly}

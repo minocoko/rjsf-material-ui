@@ -34,10 +34,11 @@ const RadioWidget = ({
   }: React.FocusEvent<HTMLInputElement>) => onFocus(id, value);
 
   const row = options ? options.inline : false;
+  const newLabel = label !== null || label !== undefined ? label : schema.title;
 
   return (
     <FormControl fullWidth={true} required={required}>
-      <FormLabel htmlFor={id}>{label || schema.title}</FormLabel>
+      <FormLabel htmlFor={id}>{newLabel}</FormLabel>
       <RadioGroup
         name={name}
         value={`${value}`}

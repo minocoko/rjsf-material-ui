@@ -55,10 +55,11 @@ const CheckboxesWidget = ({
   const _onFocus = ({
     target: { value },
   }: React.FocusEvent<HTMLButtonElement>) => onFocus(id, value);
+  const newLabel = label !== null || label !== undefined ? label : schema.title;
 
   return (
     <FormControl fullWidth={true} required={required}>
-      <FormLabel htmlFor={id}>{label || schema.title}</FormLabel>
+      <FormLabel htmlFor={id}>{newLabel}</FormLabel>
       <FormGroup>
         {(enumOptions as any).map((option: any, index: number) => {
           const checked = value.indexOf(option.value) !== -1;
