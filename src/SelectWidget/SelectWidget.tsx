@@ -77,9 +77,7 @@ const SelectWidget = ({
       //error={!!rawErrors}
       required={required}
     >
-      <InputLabel shrink={true} htmlFor={id}>
-        {newLabel}
-      </InputLabel>
+      <InputLabel htmlFor={id}>{newLabel}</InputLabel>
       <Select
         multiple={typeof multiple === 'undefined' ? false : multiple}
         value={typeof value === 'undefined' ? emptyValue : value}
